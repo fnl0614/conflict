@@ -2,6 +2,7 @@ import { Avatar, Box, Paper, Stack, Typography } from "@mui/material";
 import useProfile from "../hooks/useProfile";
 import Loading from "../../../shared/components/Loading";
 import ProfileOpt from "../components/ui/ProfileOpt";
+import { CoverImage } from "../../../shared/components/ui/CoverImage";
 
 export default function ProfileHeader() {
 
@@ -20,7 +21,7 @@ export default function ProfileHeader() {
     return(
         <Stack alignContent={"center"} sx={{ mt: 2 }} >
             <Stack sx={{ position: 'relative'}}>
-                <img alt="Cover Image" src={user.urlCover} className="w-full h-75 object-cover"/>
+                <CoverImage src={user.urlCover} />                
                 <Box
                     justifyContent={'center'}
                     alignContent={'center'}

@@ -12,9 +12,24 @@ interface CustomIconBtnProps {
     disabled?: boolean;
 }
 
+<<<<<<< HEAD
+export default function CustomIconBtn({ 
+	size,
+	bgColor,
+	link,
+	onClick,
+	Icon,
+	loading = false,
+	disabled = false 
+}: CustomIconBtnProps) {
+=======
 export default function CustomIconBtn({ size, bgColor, link, onClick, Icon, loading = false, disabled = false }: CustomIconBtnProps) {
+>>>>>>> main
 
-	const iconStyle = { ...size, color: bgColor + '.main' };
+	const iconStyle = { 
+		...size, 
+		color: disabled ? 'action.disabled' : `${bgColor}.main`
+	};
 
 	return (
 		<IconButton 

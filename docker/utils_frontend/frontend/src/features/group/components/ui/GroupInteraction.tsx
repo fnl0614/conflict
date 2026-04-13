@@ -1,55 +1,26 @@
-import { Stack } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { CustomLargeBtn, CustomBtn } from '../../../../shared/components/ui/CustomButton';
+import { useAuth } from '../../../authentication/context/AuthContext';
+import { InvitationActionBtn, QuitGroupBtn } from './GroupBtn';
 
 interface GroupInteractionProps {
 	type: string;
+	groupId: string;
+	requestId?: string;
+	variant? : 'extended' | 'normal';
 }
 
-const WbGroupInteraction = ({ type }: GroupInteractionProps) => {
+const GroupInteraction = ({ type, groupId, variant = 'normal', requestId = '' }: GroupInteractionProps) => {
 
-	const [t] = useTranslation("global");
+	const {userData} = useAuth();
+	const userId = userData?.id || '';
 
 	switch (type) {
-		case 'join':
-			return <CustomLargeBtn bgColor='accent_2' title={t("group.join")} />
 		case 'quit':
-			return <CustomLargeBtn bgColor='accent_1' title={t("group.quit")} />
-		case 'pending':
-			return <CustomLargeBtn bgColor='secondary_1' title={t("group.pending")} />
+			return <QuitGroupBtn groupId={groupId} userId={userId} variant={variant}/>;
 		case 'invitation':
-			return (
-				<Stack spacing={1} width={'100%'}>
-					<CustomLargeBtn bgColor='accent_2' title={t("common-group-friend.accept")} />
-					<CustomLargeBtn bgColor='accent_1' title={t("common-group-friend.decline")} />
-				</Stack>
-			)
+			return <InvitationActionBtn requestId={requestId}/>;
 		default:
 			return null;
 	}
-};
+}
 
-const MbGroupInteraction = ({ type }: GroupInteractionProps) => {
-
-	const [t] = useTranslation("global");
-
-	switch (type) {
-		case 'join':
-			return <CustomBtn bgColor='accent_2' title={t("group.join")} />
-		case 'quit':
-			return <CustomBtn bgColor='accent_1' title={t("group.quit")} />
-		case 'pending':
-			return <CustomBtn bgColor='secondary_1' title={t("group.pending")} />
-		case 'invitation':
-			return (
-				<Stack spacing={1}>
-					<CustomBtn bgColor='accent_2' title={t("common-group-friend.accept")} />
-					<CustomBtn bgColor='accent_1' title={t("common-group-friend.decline")} />
-				</Stack>
-			)
-		default:
-			return null;
-	}
-};
-
-export { MbGroupInteraction, WbGroupInteraction };
+export default GroupInteraction;

@@ -1,18 +1,23 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import MobileHeader from "./MobileHeader";
 
 interface MobileLayoutProps {
 	children: React.ReactNode;
 }
 
-export default function MobileLayout({ children }: MobileLayoutProps) {
-	const header = MobileHeader();
-	const marginTop = header ? 5 : 0;
-
+export const MobileSpecialLayout = ({ children }: MobileLayoutProps) => {
 	return (
-		<Box position={'relative'}>
+		<Stack display={'flex'} sx={{ width: '100%', height: '100vh', flexDirection: 'column'}} spacing={5}>
+			<Stack sx={{ flex: 1, overflowY: 'auto', minHeight: 0}}>{children}</Stack>
+		</Stack>
+	)
+}
+
+export default function MobileLayout({ children }: MobileLayoutProps) {
+	return (
+		<Stack display={'flex'} sx={{ width: '100%', height: '100vh', flexDirection: 'column'}} spacing={5}>
 			<MobileHeader/>
-			<Box marginTop={marginTop}>{children}</Box>
-		</Box>
+			<Stack sx={{ flex: 1, overflowY: 'auto', minHeight: 0}}>{children}</Stack>
+		</Stack>
 	)
 }

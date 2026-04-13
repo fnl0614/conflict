@@ -38,7 +38,7 @@ services:
       - api_key
       - database_url
     volumes:
-      - certAuth:/etc/ssl:ro
+      - certAuth:/etc/ssl/app/:ro
 
   frontend:
     build: ./docker/utils_frontend/
@@ -53,7 +53,7 @@ services:
     secrets:
       - api_key
     volumes:
-      - certAuth:/etc/ssl:ro
+      - certAuth:/etc/ssl/app/:ro
 
 volumes:
   postgres_data:

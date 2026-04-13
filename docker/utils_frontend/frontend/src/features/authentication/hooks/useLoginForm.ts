@@ -26,6 +26,10 @@ const useLoginForm = () => {
 	const navigate = useNavigate();
 
 	const onSubmit = async (data: SignInData) => {
+<<<<<<< HEAD
+		/* Note : No try catch ? */
+=======
+>>>>>>> main
 			await login(data);
 			await initUserData();
 			navigate("/");

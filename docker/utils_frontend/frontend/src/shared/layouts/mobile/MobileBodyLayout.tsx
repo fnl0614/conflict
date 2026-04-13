@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material';
 import { Outlet, useLocation, useOutletContext } from 'react-router'
 
 export interface MobileBodyLayoutProps{
@@ -8,10 +9,11 @@ export interface MobileBodyLayoutProps{
 export default function MobileBodyLayoutWithConditions( { Index, path }: MobileBodyLayoutProps ) {
 
 	const { pathname } = useLocation();
+
 	return (
-		<>
-			{ pathname === path ? <Index /> : null }
+		<Stack paddingTop={2} spacing={2}>
+			{ pathname === path ? <Index /> : null }	
 			<Outlet context={ useOutletContext() }/>
-		</>
+		</Stack>
 	)
 }

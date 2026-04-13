@@ -20,6 +20,8 @@ export interface SideBarProps {
 	lowerBtn?: btnType
 	tabOrientation: 'horizontal' | 'vertical';
 	Node?: React.ReactNode | null;
+	upperSpace?: boolean;
+	lowerSpace?: boolean;
 	popUp?: {
 		children: React.ReactNode;
 		isVisible: boolean;
@@ -27,16 +29,28 @@ export interface SideBarProps {
 	}
 }
 
-export default function CustomSideBar({ title, items: itemArray, upperBtn, lowerBtn, tabOrientation, Node, popUp }: SideBarProps) {
+export default function CustomSideBar({
+	title,
+	items: itemArray,
+	upperBtn,
+	upperSpace,
+	lowerBtn,
+	lowerSpace,
+	tabOrientation,
+	Node,
+	popUp }: SideBarProps) {
 	
 	const { children, isVisible } = popUp || { children: null, isVisible: false };
 
 	return (
-		<Stack spacing={2}>
+		<Stack spacing={2} display={'flex'} direction={'column'} height={'85%'}>
 			{title && <TitleBar title={title} backLink='/' Icon={null}/>}
 			{
 				upperBtn && 
-				<Box justifyContent={'center'} display={'flex'}>
+				<Box
+					justifyContent={'center'}
+					display={'flex'}
+				>
 					<CustomBtn
 						title={upperBtn.title}
 						bgColor={upperBtn.btnColor}
@@ -44,8 +58,10 @@ export default function CustomSideBar({ title, items: itemArray, upperBtn, lower
 					/>
 				</Box>
 			}
+			{upperSpace && <Box flexGrow={1} />}
 			{popUp && isVisible && <Box padding={5}>{children}</Box> }
 			{itemArray && <CustomTab itemArray={itemArray} orientation={tabOrientation}/>}
+			{lowerSpace && <Box flexGrow={1} />}
 			{
 				lowerBtn &&
 				<Box justifyContent={'center'} display={'flex'}>

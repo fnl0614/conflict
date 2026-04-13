@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardActions, CardContent, Stack, Typography } from "@mui/material";
-import UserAvatar from "../../profile/components/ui/UserAvatar";
+import CustomAvatar, { SquareAvatarItem } from "../../../shared/components/ui/CustomAvatar";
 import GoToChatButton from "../../chat/components/ui/GoToChatButton";
 import { MbFriendInteraction, WbFriendInteraction } from "./ui/FriendInteraction";
 import { getFullName } from "../../../shared/utils/stringUtils";
@@ -21,6 +21,11 @@ const WbFriendItem = ({ data }: RelationalData) => {
 	const { request_id, user_info } = data;
 	const { id, urlProfil, firstName, lastName, role } = user_info;
     const navigate = useNavigate();
+<<<<<<< HEAD
+
+	console.log("Role in WbFriendItem:", role);
+=======
+>>>>>>> main
 
 	return (
 		<Card sx={{ width: '200px', height: role === 'none' ? '260px' : '350px', bgcolor: 'white'}}>
@@ -28,15 +33,27 @@ const WbFriendItem = ({ data }: RelationalData) => {
 				<CardActionArea onClick={() => navigate(`/users/${id}`)}>
 					<CardContent sx={{ padding: 0, margin: 0 }}>
 						<Stack alignItems={'center'} spacing={1} height={'75%'}>
-							<img alt="Profil" src={urlProfil} className="w-full h-50 object-cover"/>
-							<Typography variant="h6" color="secondary_1" noWrap>{getFullName(firstName, lastName)}</Typography>
+							<SquareAvatarItem 
+								urlProfil={urlProfil}
+								size={{ width: '100%', height: '100%'}}
+								shape="square"
+							/>
+							{/* <img alt="Profil" src={urlProfil} className="w-full h-50 object-cover"/> */}
+							<Stack width={'100%'} justifyContent={'center'} alignContent={'center'}>
+								<Typography textAlign={'center'}  variant="h6" color="secondary_1" noWrap>{getFullName(firstName, lastName)}</Typography>
+							</Stack>
+							{/* <Typography variant="h6" color="secondary_1" noWrap>{getFullName(firstName, lastName)}</Typography> */}
 						</Stack>
 					</CardContent>
 				</CardActionArea>
 				{
 					role !== 'none' &&
 					<CardActions sx={{ width: '100%', height: '100%', justifyContent: 'center'}}>
+<<<<<<< HEAD
+						<WbFriendInteraction type={getType(role)} user_id={id} request_id={request_id} variant="extended"/>
+=======
 						<WbFriendInteraction type={getType(role)} user_id={id} request_id={request_id}/>
+>>>>>>> main
 					</CardActions>
 				}
 			</Stack>
@@ -56,10 +73,10 @@ const MbFriendItem = ({ data } : RelationalData) => {
 				<CardActionArea sx={{ width: role === 'none' ? '100%' : '75%' }} onClick={() => navigate(`/users/${id}`)}>
 					<CardContent>
 						<Stack direction={'row'} alignItems={'center'} spacing={1}>
-							<UserAvatar 
+							<CustomAvatar 
 								id={id}
 								urlProfil={urlProfil}
-								size={{ width: 40, height: 40 }}
+								size={{ width: 40, height: 40}}
 								isNotClickable={true}
 							/>
 							<Typography variant="h6" color="secondary_1" noWrap>{getFullName(firstName, lastName)}</Typography>

@@ -1,15 +1,16 @@
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+
+import TermsOfService from '../pages/legal/TermsOfService';
+import PrivacyPolicy from '../pages/legal/PrivacyPolicy';
 
 import Login from '../pages/entrypoint/Login';
 import Register from '../pages/entrypoint/Register';
 import Home from '../pages/Home';
-import NotFound from '../pages/error/NotFound';
 
 import Groups from '../pages/Groups';
-import GroupInvitation from '../../features/group/page/GroupInvitation';
-import GroupList from '../../features/group/page/GroupList';
-import GroupOther from '../../features/group/page/GroupOther';
+import GroupInvitation from '../../features/group/page/main/GroupInvitation';
+import GroupJoinedList from '../../features/group/page/main/GroupJoinedList';
+import GroupOwnedList from '../../features/group/page/main/GroupOwnedList';
 
 import Friends from '../pages/Friends';
 import FriendInvitation from '../../features/friend/pages/FriendInvitation';
@@ -25,7 +26,7 @@ import Posts from '../pages/Post';
 
 import Profile from '../pages/Profile';
 import ProfileContent from '../../features/profile/pages/ProfileContent';
-import UserGroupList from '../../features/group/page/UserGroupList';
+import UserGroupList from '../../features/group/page/userProfile/UserGroupList';
 import UserFriendList from '../../features/friend/pages/UserFriendList';
 
 import SettingRedirector from '../../features/setting/routes/SettingRedirector';
@@ -34,41 +35,56 @@ import NameChange from '../../features/setting/pages/NameChange';
 import EmailChange from '../../features/setting/pages/EmailChange'; 
 import PasswordChange from '../../features/setting/pages/PasswordChange'; 
 import LanguageChange from '../../features/setting/pages/LanguageChange';
-import Tos from '../../features/setting/pages/Tos';
 
-import WebLayout from '../layouts/web/WebLayout';
-import MobileLayout from '../layouts/mobile/MobileLayout';
-import { useMediaQuery } from 'react-responsive';
-import { Box } from '@mui/material';
 import SearchPost from '../../features/search/pages/SearchPost';
 import SearchGroup from '../../features/search/pages/SearchGroup';
 import SearchUser from '../../features/search/pages/SearchUser';
 import ImageCover from '../../features/setting/pages/ImageCover';
 import ImageProfile from '../../features/setting/pages/ImageProfile';
 
-const GeneralLayout = () => {
+import GroupProfile from '../pages/GroupProfile';
+import GroupProfileContent from '../../features/group/page/groupProfile/GroupProfileContent';
+import GroupMember from '../../features/group/page/groupProfile/GroupMember';
+import GroupCreatePost from '../../features/group/page/groupProfile/GroupCreatePost';
+import GroupNameChange from '../../features/group/page/setting/GroupNameChange';
+import GroupImageCover from '../../features/group/page/setting/GroupImageCover';
+import GroupImages from '../../features/group/page/setting/GroupImages';
+import GroupImageProfile from '../../features/group/page/setting/GroupImageProfile';
+import GroupMemberManagement from '../../features/group/page/setting/GroupMemberManagement';
+import GroupSettingRedirector from '../../features/group/routes/GroupSettingRedirector';
+import GroupInviteToJoin from '../../features/group/page/groupProfile/GroupInviteToJoin';
+import GroupDescriptionChange from '../../features/group/page/setting/GroupDescriptionChange';
 
-	const isMobile = useMediaQuery({ maxWidth: 750 });
+import CustomErrorPage from '../pages/error/CustomErrorPage';
+import GroupProvider from '../../features/group/provider/GroupProvider';
+import LoadingCircular from '../components/LoadingCircular';
 
-	return (
-		<Box sx={{ overflow: 'auto', height: '100vh'}}>
-			<Box sx={{ minWidth: 350, height: '100%', minHeight: '100vh'}}>
-				{
-					isMobile ? 
-					<MobileLayout ><Outlet context={'mb'}/></MobileLayout> : 
-					<WebLayout ><Outlet context={'wb'}/></WebLayout>
-				}
-			</Box>
-		</Box>
-	)
+import { SpecialLayout, GeneralLayout } from '../layouts/GeneralLayout';
+
+import { useAuth } from '../../features/authentication/context/AuthContext';
+import type { ChildrenNodeProps } from '../data/sharedType';
+
+const ProtectedRoute = ({children} : ChildrenNodeProps) => {
+	const { userData } = useAuth();
+	const location = useLocation();
+
+	if (userData === undefined)
+		return <LoadingCircular />;
+	if (!userData && location.pathname !== '/login' && location.pathname !== '/register')
+		return <Navigate to={"/login"}/>;
+	if (userData && (location.pathname === '/login' || location.pathname === '/register'))
+        return <Navigate to={"/"} />;
+	return children;
 }
 
 const AppRoutes: React.FC = () => {
 	return ( 
 		<Routes>
+			<Route path='/termsOfService'element={<SpecialLayout><TermsOfService /></SpecialLayout>} />
+			<Route path='/privacyPolicy'element={<SpecialLayout><PrivacyPolicy /></SpecialLayout>} />
 			<Route path='/login' element={<ProtectedRoute><Login /></ProtectedRoute>} />
 			<Route path='/register' element={<ProtectedRoute><Register /></ProtectedRoute>} />
-			<Route path='/notFound' element={<NotFound />} />
+			<Route path='/notFound' element={<CustomErrorPage error={'Page not Found'} status={404} />} />
 			<Route element={<ProtectedRoute><GeneralLayout /></ProtectedRoute>}>
 				<Route path='/' element={<Home />} />
 				<Route path='/home' element={<Home />} />
@@ -83,9 +99,26 @@ const AppRoutes: React.FC = () => {
 				<Route path='/groups' element={<Groups />} >
 					<Route index element={<Navigate to="invitation" replace />} />
 					<Route path='invitation' element={<GroupInvitation />} />
-					<Route path='list' element={<GroupList />} />
-					<Route path='other' element={<GroupOther />} />
+					<Route path='joined' element={<GroupJoinedList />} />
+					<Route path='owned' element={<GroupOwnedList />} />
 				</Route>
+				<Route path="group/:id" element={<GroupProfile />}>
+					<Route index element={<Navigate to="profile" replace />} />
+					<Route path="profile" element={<GroupProfileContent />}/>
+					<Route path="members" element={<GroupMember />}/>
+				</Route>
+				<Route path='group/:id/setting' element={<GroupProvider><GroupSettingRedirector /></GroupProvider>}>
+					<Route path='image' element={<GroupImages />}>
+						<Route index element={<Navigate to="cover" replace />} />
+						<Route path='cover' element={<GroupImageCover />} />
+						<Route path='profile' element={<GroupImageProfile />} />
+					</Route>
+					<Route path='name' element={<GroupNameChange />} />
+					<Route path='description' element={<GroupDescriptionChange />} />
+					<Route path='management' element={<GroupMemberManagement />} />
+				</Route>
+				<Route path="group/:id/post" element={<GroupProvider><GroupCreatePost /></GroupProvider>}/>
+				<Route path="group/:id/sendInvitation" element={<GroupProvider><GroupInviteToJoin /></GroupProvider>}/>
 				<Route path='/friends' element={<Friends />} >
 					<Route index element={<Navigate to="invitation" replace />} />
 					<Route path='invitation' element={<FriendInvitation />} />
@@ -112,7 +145,8 @@ const AppRoutes: React.FC = () => {
 					<Route path="email" element={<EmailChange />} />
 					<Route path="password" element={<PasswordChange />} />
 					<Route path="language" element={<LanguageChange />} />
-					<Route path="tos" element={<Tos />} />
+					<Route path="termsOfService" element={<TermsOfService />} />
+					<Route path="privacyPolicy" element={<PrivacyPolicy />} />
 				</Route>
 			</Route>
 			<Route path='*' element={<Navigate to="/notFound" replace />} />

@@ -3,7 +3,8 @@ export type SignUpData = {
 	lastName: string,
     email: string,
     password: string,
-	confirmPassword: string
+	confirmPassword: string,
+    termsAccepted: boolean,
 }
 
 export type SignInData = {

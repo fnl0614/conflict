@@ -20,6 +20,25 @@ services:
         - app_net
       expose:
         - "5432"
+  
+    database_group:
+      image: postgres:17-bookworm
+      container_name: database_group
+      restart: on-failure
+      env_file:
+        - .env
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB=likeo
+      volumes:
+        - postgres_data_group:/var/lib/postgresql/data
+      networks:
+        - app_net
+      expose:
+        - "5432"
+      # ports:
+      #   - "5433:5432"
 
     minio:
       image: minio/minio:latest
@@ -87,12 +106,34 @@ services:
       volumes:
         - certAuth:/etc/ssl/app:ro
 
-    chat:
-      build: ./docker/backend_chat/
-      container_name: backend_chat
+    # chat:
+    #   build: ./docker/backend_chat/
+    #   container_name: backend_chat
+    #   restart: on-failure
+    #   expose:
+    #     - "3003"
+    #   networks:
+    #     - app_net
+    #   volumes:
+    #     - certAuth:/etc/ssl/app/:ro
+
+    # upload_file:
+    #   build: ./docker/backend_upload_file/
+    #   container_name: backend_upload_file
+    #   restart: on-failure
+    #   expose:
+    #     - "3004"
+    #   networks:
+    #     - app_net
+    #   volumes:
+    #     - certAuth:/etc/ssl:ro
+
+    group:
+      build: ./docker/backend_group/
+      container_name: backend_group
       restart: on-failure
       expose:
-        - "3003"
+        - "3005"
       networks:
         - app_net
       volumes:
@@ -111,6 +152,7 @@ services:
 
 volumes:
   postgres_data:
+  postgres_data_group:
   certAuth:
   minio_data:
 

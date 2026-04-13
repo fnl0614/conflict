@@ -3,6 +3,20 @@ import type { ChildrenNodeProps } from '../data/sharedType';
 import AuthProvider from '../../features/authentication/context/AuthContext';
 import LanguageProvider from '../../features/language/provider/LanguageProvider';
 import CustomThemeProvider from './ThemeProvider';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: false,
+			refetchOnMount: false,
+			refetchOnReconnect: false,
+			retry: false,
+			staleTime: 1000 * 60 * 60 * 24 
+		},
+	}
+});
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 // import { useRef, useEffect } from 'react';
@@ -31,11 +45,19 @@ export const AppProviders: React.FC<ChildrenNodeProps> = ({ children }) => {
 		<GoogleOAuthProvider clientId={clientId}>
 			<LanguageProvider>
 				<CustomThemeProvider>
+<<<<<<< HEAD
+					<QueryClientProvider client={queryClient}>
+=======
+>>>>>>> main
 						<AuthProvider>
 							<BrowserRouter>
 								{children}
 							</BrowserRouter>
 						</AuthProvider>
+<<<<<<< HEAD
+					</QueryClientProvider>
+=======
+>>>>>>> main
 				</CustomThemeProvider>
 			</LanguageProvider>
 		</GoogleOAuthProvider>

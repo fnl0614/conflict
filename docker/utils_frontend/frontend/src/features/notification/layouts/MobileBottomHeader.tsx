@@ -11,7 +11,7 @@ export default function MobileBottomHeader(){
 
 	const iconSize = { width: 30, height: 30};
 	const bgColor = 'secondary_1';
-	const notifArray = [3, 10, 0, 0, 100];
+	const notifArray = [0, 0, 0, 0, 0];
 
 	return(
 		<Box display={{ xs: 'block', md: 'none', lg: 'none'}}>

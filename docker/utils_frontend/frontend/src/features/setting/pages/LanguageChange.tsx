@@ -7,17 +7,20 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SaveButton from '../components/SaveButton';
-import useLanguage from '../hooks/useLanguage';
 import TitleBar from '../../../shared/components/ui/TitleBar';
+import useLanguage from '../hooks/useLanguage';
+import { useUtils } from '../../../shared/hooks/useUtils';
 
 /*UPDATE: Adding name to the select form for HTML norm */
 export default function LanguageSettingPage() {
     const {
-        t,
-        language,
-        setLanguage,
-        onSave
+        onSave,
+        selectedLanguage,
+        setSelectedLanguage,
+        error
     } = useLanguage();
+
+    const { t } = useUtils();
 
     return (
         <Stack spacing={6} alignItems="center">
@@ -31,8 +34,8 @@ export default function LanguageSettingPage() {
                 <FormControl style={{width: '100%'}}>
                     <Select
                         name='language'
-                        value={language}
-                        onChange={(e) => setLanguage(e.target.value)}
+                        value={selectedLanguage}
+                        onChange={(e) => setSelectedLanguage(e.target.value)}
                         IconComponent={ExpandMoreIcon}
                         sx={{
                             backgroundColor: '#ECECEC',
@@ -41,17 +44,18 @@ export default function LanguageSettingPage() {
                         }}
                     >
                         <MenuItem key={'en'} value={"en"}>
-                            {"English"}
+                            {t("language.en")}
                         </MenuItem>
                         <MenuItem key={'fr'} value={"fr"}>
-                            {"French"}
+                            {t("language.fr")}
                         </MenuItem>
-                        <MenuItem key={'ar'} value={"ar"}>
-                            {"Arabic"}
+                        <MenuItem key={'es'} value={"es"}>
+                            {t("language.es")}
                         </MenuItem>
                     </Select>
                 </FormControl>
-                <SaveButton onClick={() => onSave(language)} disabledCondition={!language}/>
+                <SaveButton onClick={() => onSave(selectedLanguage)} disabledCondition={!selectedLanguage}/>
+                {error && <Typography variant='body1'></Typography>}
             </Stack>
         </Stack>
     );

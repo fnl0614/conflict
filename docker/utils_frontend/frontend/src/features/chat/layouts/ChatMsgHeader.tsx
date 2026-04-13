@@ -1,5 +1,5 @@
 import { Paper, Stack, Typography } from "@mui/material";
-import UserAvatar from "../../profile/components/ui/UserAvatar";
+import CustomAvatar from "../../../shared/components/ui/CustomAvatar";
 import { getFullName } from "../../../shared/utils/stringUtils";
 import CustomIconBtn from "../../../shared/components/ui/CustomIconBtn";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -23,7 +23,7 @@ export default function ChatMsgHeader({id, urlProfil, firstName, lastName}: Chat
 				link='/home'
 			/>
 			<Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} gap={2}>
-				<UserAvatar 
+				<CustomAvatar 
 					id={id}
 					urlProfil={urlProfil}
 					size={{ width: 80, height: 80 }}

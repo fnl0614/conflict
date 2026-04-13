@@ -4,6 +4,7 @@ BACK_GATEWAY_ENV_DIR=docker/backend_gateway/backend
 BACK_USER_ENV_DIR=docker/backend_user/backend
 BACK_POST_ENV_POST=docker/backend_post/backend
 BACK_UPLOAD_FILE_ENV_DIR=docker/backend_upload_file/backend
+BACK_GROUP_ENV_DIR=docker/backend_group/backend
 VOLUME_PATH = ~/goinfre/docker/volumes/ft_transcendence_certAuth
 
 all: 
@@ -13,6 +14,7 @@ all:
 	@cp $(BACK_UPLOAD_FILE_ENV_DIR)/.env.example $(BACK_UPLOAD_FILE_ENV_DIR)/.env
 	@cp $(BACK_USER_ENV_DIR)/.env.example $(BACK_USER_ENV_DIR)/.env
 	@cp $(BACK_POST_ENV_POST)/.env.example $(BACK_POST_ENV_POST)/.env
+	@cp $(BACK_GROUP_ENV_DIR)/.env.example $(BACK_GROUP_ENV_DIR)/.env
 	@cp .env.example .env
 	@docker compose down; docker volume ls -q | grep certAuth | xargs -r docker volume rm
 	@rm -rf $(VOLUME_PATH)

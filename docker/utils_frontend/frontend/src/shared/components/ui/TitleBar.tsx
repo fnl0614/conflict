@@ -8,9 +8,15 @@ import useScreenMobile from "../../hooks/useScreen";
 export type TitleBarProps = {
 	title: string;
 	backLink?: string;
+<<<<<<< HEAD
+	addBackLink?: boolean;
+	Icon?: ElementType | null;
+	IconOnClick?: () => void;
+=======
 	Icon?: ElementType | null;
 	IconOnClick?: () => void;
 	Node?: React.ReactNode | null;
+>>>>>>> main
 }
 
 /* 
@@ -22,6 +28,21 @@ export type TitleBarProps = {
 
 */
 
+<<<<<<< HEAD
+export default function TitleBar({ 
+	title,
+	backLink = "/",
+	addBackLink = true,
+	Icon = null,
+	IconOnClick,
+} : TitleBarProps) {
+	return(
+		<Paper sx={{ width: '100%', position: 'static', minWidth: '350px'}}>
+			<Stack direction='row' justifyContent='space-between' alignItems='center' sx={{p: 2}}>
+				{
+					// useOutletContext() !== 'mb' ? <IconButton sx={{alignSelf: 'flex-start'}} /> :
+					useScreenMobile() && addBackLink ?
+=======
 export default function TitleBar({ title, backLink = "/", Icon = null, IconOnClick, Node } : TitleBarProps) {
 	return(
 		<Paper sx={{width: '100%', position: 'static'}}>
@@ -29,6 +50,7 @@ export default function TitleBar({ title, backLink = "/", Icon = null, IconOnCli
 				{
 					// useOutletContext() !== 'mb' ? <IconButton sx={{alignSelf: 'flex-start'}} /> :
 					useScreenMobile() ?
+>>>>>>> main
 					<GoBackBtn 
 						btnStyle={{ alignSelf: 'flex-start' }}
 						iconStyle={{ color: '#836FFF' }}
@@ -46,11 +68,18 @@ export default function TitleBar({ title, backLink = "/", Icon = null, IconOnCli
 				{/* {Icon ? <Icon /> : <IconButton sx={ {alignSelf: 'flex-end'} }/>} */}
 				<IconButton 
 					sx={{  alignSelf: 'flex-end' }} 
+<<<<<<< HEAD
+					onClick={IconOnClick}
+				>
+					{Icon && <Icon sx={{ color: 'secondary_1.main' }} />}
+				</IconButton>
+=======
 					onClick={Icon ? IconOnClick : undefined}
 				>
 					{Icon && <Icon sx={{ color: 'secondary_1.main' }} />}
 				</IconButton>
 				{Node}
+>>>>>>> main
 			</Stack>
 		</Paper>
 	);

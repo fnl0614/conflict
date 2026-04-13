@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Groups {
+  id          String      @id @default(ulid())
+  creatorId   String
+  name        String
+  urlProfil String?
+  urlCover  String?
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  requests GroupJoinRequests[] @relation(name: "groupToJoin")
+  member GroupMember[] @relation(name: "member")
+}
+
+enum StatusRequest {
+  PENDING
+  ACCEPTED
+  DENIED
+}
+
+model GroupJoinRequests {
+  id        String      @id @default(ulid())
+  receiverId    String
+  groupId   String
+  group     Groups @relation(name: "groupToJoin", fields: [groupId], references: [id], onDelete: Cascade)
+  status    StatusRequest? @default(PENDING)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /*********************************
+  *relation one-to-may for nullable*
+  **********************************/
+  member GroupMember[] @relation(name: "requestAccepted")
+}
+
+enum RoleInGroup {
+  MEMBER
+  ADMIN
+}
+
+model GroupMember {
+  id        String      @id @default(ulid())
+  groupId   String
+  group     Groups @relation(name: "member", fields: [groupId], references: [id], onDelete: Cascade)
+  userId    String
+  role       RoleInGroup? @default(MEMBER)
+  requestId String?
+  request   GroupJoinRequests? @relation(name: "requestAccepted", fields: [requestId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([groupId, userId])
+}
