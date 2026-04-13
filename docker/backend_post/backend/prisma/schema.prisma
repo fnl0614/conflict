@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        String @id @default(ulid())
+  group_id  String?
+  user_id   String
+  description String?
+  url_image   String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  likes PostLike[]
+}
+
+model PostLike {
+  id         String   @id @default(ulid())
+  post_id    String
+  user_id    String
+  created_at DateTime @default(now())
+
+  post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+
+  @@unique([post_id, user_id])  // Impossible de liker deux fois
+  @@index([user_id])            // Rapide pour "tous les likes de cet user"
+  @@index([post_id])            // Rapide pour "tous les likes de ce post"
+}

@@ -1,0 +1,46 @@
+{
+  "authentication-page": {
+    "signin": "SE CONNECTER",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "register": "S'INSCRIRE",
+    "username": "Nom d'utilisateur",
+    "userFirstName": "Prénom de l'utilisateur",
+    "email": "Email",
+    "login": "CONNECTION",
+    "googleOpt": "Ou continuer avec",
+    "loginAsk": "Pas encore de login ? ",
+    "registerAsk": "Avez-vous un compte ? "
+  },
+
+  "setting-page": {
+    "mainTitle" : "PARAMETRES",
+    "mainProfilCover" : "Photo de couverture",
+    "mainProfilImage" : "Photo de profil",
+    "mainFirstName" : "Nom",
+    "mainLastName" : "Prenom",
+    "mainEmail" : "Email",
+    "mainPassword" : "Mot de passe",
+    "mainLanguage" : "Langage",
+    "mainTOS" : "Conditions de service",
+    "mainLogout" : "DECONNECTION",
+    "Profil Cover" : "Photo de couverture",
+    "Profil Image" : "Photo de profil",
+    "imageUpload" : "Uploader une image",
+    "imageLabel" : "Choisissez une image",
+    "imagePreview" : "Apercu de l'image",
+    "save" : "SAUVEGARDER",
+    "First name setting" : "Changement de nom",
+    "Current first name" : "Nom actuel",
+    "New first name" : "Nouveau nom",
+    "Last name setting" : "Changement de prenom",
+    "Current last name" : "Prenom actuel",
+    "New last name" : "Nouveau prenom",
+    "Email setting" : "Changement d'email",
+    "Current email" : "Email actuel",
+    "New email" : "Nouveau email",
+    "infoDirective" : "Pour modifier le parametre, saisissez la nouvelle valeur ci-dessous puis enregistrez",
+    "langTitle" : "Langage",
+    "langDirective" : "Choisissez un langage"
+  }
+}

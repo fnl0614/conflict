@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+dist/
+npm-debug.log*
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+
+1components-trans.excalidraw
+dev.md
+user.prisma

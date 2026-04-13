@@ -1,0 +1,39 @@
+{
+  "name": "post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/post.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/post.js",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:dbpush": "npx prisma db push"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@fastify/multipart": "^9.4.0",
+    "@fastify/rate-limit": "^10.0.0",
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^6.19.2",
+    "axios": "^1.13.6",
+    "fastify": "^5.7.1",
+    "fastify-plugin": "^5.0.0",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
+    "minio": "^8.0.6",
+    "pg": "^8.16.3",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "@types/pg": "^8.18.0",
+    "@types/ws": "^8.18.1",
+    "nodemon": "^3.1.11",
+    "prisma": "^6.19.2",
+    "typescript": "^5.9.3"
+  }
+}

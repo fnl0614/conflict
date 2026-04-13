@@ -1,0 +1,70 @@
+services:
+  cert-gen:
+    build: ./docker/certGen
+    volumes:
+      - certAuth:/certs
+    restart: "no"
+
+  database:
+    image: postgres:17-bookworm
+    container_name: database
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=likeo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_net
+    expose:
+      - "5432"
+
+  backend:
+    build: ./docker/utils_backend/
+    container_name: backend
+    restart: on-failure
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      # - "5555:5555" # for database visualisation
+    depends_on:
+      - database
+    networks:
+      - app_net
+    secrets:
+      - api_key
+      - database_url
+    volumes:
+      - certAuth:/etc/ssl:ro
+
+  frontend:
+    build: ./docker/utils_frontend/
+    container_name: frontend
+    restart: on-failure
+    ports:
+      - "8443:443"
+    depends_on:
+      - backend
+    networks:
+      - app_net
+    secrets:
+      - api_key
+    volumes:
+      - certAuth:/etc/ssl:ro
+
+volumes:
+  postgres_data:
+  certAuth:
+
+networks:
+  app_net:
+    driver: bridge
+
+secrets:
+  api_key:
+    file: ./secrets/api_key.txt
+  database_url:
+    file: ./secrets/database_url.txt

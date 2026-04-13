@@ -1,0 +1,143 @@
+{
+    "authentication-page": {
+        "signin": "sign in",
+        "signup": "sign up",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "register": "register",
+        "lastName": "Last name",
+        "firstName": "First name",
+        "email": "Email",
+        "login": "log in",
+        "googleOpt": "Or continue with",
+        "loginAsk": "No login yet ? ",
+        "registerAsk": "You got an account ? ",
+        "passwordError": "Passwords do not match",
+        "registerSuccess" : "Registration successful! Please log in.",
+        "loginSuccess" : "Login successful!",
+        "modal": {
+            "title": "Google Authentication",
+            "content": "You must fill the fields above to use Google Authentication."
+        }
+    },
+
+    "setting-page": {
+        "mainTitle" : "SETTINGS",
+        "mainImage" : "Profil and Cover image",
+        "mainName" : "First and Last name",
+        "mainEmail" : "Email",
+        "mainPassword" : "Password",
+        "mainLanguage" : "Language",
+        "mainTOS" : "Terms of Service",
+        "mainLogout" : "LOGOUT",
+        "cover" : "Cover",
+        "profile" : "Profile",
+        "imageTitle" : "Images",
+        "imageUpload" : "Upload image",
+        "imageLabel" : "Choose an image",
+        "imagePreview" : "Image preview",
+        "save" : "SAVE",
+        "nameTitle" : "Profil name",
+        "firstName" : "First name",
+        "lastName" : "Last name",
+        "nameInstructions" : "To change your name, fill the sections above to create a new full name.",
+        "emailTitle" : "Email",
+        "emailInstructions" : "To change your email, fill the section above to update your email.",
+        "passwordTitle" : "Password",
+        "currentPassword" : "Current password",
+        "newPassword" : "New password",
+        "confirmPassword" : "Confirm password",
+        "passwordInstructions" : "To change your password, tap your current password on the current password field and tap the new password to the fields new and confirm password, then save.",
+        "langTitle" : "Language",
+        "langDirective" : "Choose a language",
+
+        "terms": [
+            "By using this application, you agree to these Terms of Service.",
+            "If you do not agree, please do not use the app. This app is provided on an \"as is\" and \"as available\" basis. We make no guarantees regarding availability, accuracy, or reliability of the service. Features may change, be updated, or be discontinued at any time without notice.",
+            "You are responsible for any activity that occurs under your use of the app. You agree not to misuse the service, attempt unauthorized access, or interfere with normal operation.",
+            "All content and functionality are provided for general purposes only. We are not liable for any damages, losses, or issues arising from use of the app.",
+            "We may update these Terms at any time. Continued use of the app constitutes acceptance of the updated Terms."
+        ]
+    },
+
+    "home-page": {
+        "search": "Search",
+        "home": "Home",
+        "groups": "Groups",
+        "friends": "Friends",
+        "chats": "Chats",
+        "notifications": "Notifications",
+        "posts": "Posts",
+        "settings": "Settings",
+        "postInstruction": "Add friends to see their posts"
+    },
+
+    "profile-page": {
+        "see": "See all",
+        "title": "Profile",
+        "friends": "Friends",
+        "groups": "Groups",
+        "accept": "Accept invitation",
+        "decline": "Decline invitation",
+        "add": "Add to friends",
+        "remove": "Remove from friends",
+        "waiting": "Invitation pending",
+        "chat": "Chat",
+        "setting": "Setting",
+        "postInstruction": "Add this user as a friend to see his/her post"
+    },
+
+    "common-group-friend": {
+        "accept": "Accept",
+        "decline": "Decline",
+        "invitations": "Invitations",
+        "other": "Other"
+    },
+
+    "group": {
+        "groups": "groups",
+        "createGroup": "Create a new group",
+        "myGroups": "My Groups",
+        "join": "Join",
+        "quit": "Quit",
+        "pending": "Pending",
+        "submit": "Submit",
+        "name": "Group Name"
+    },
+
+    "friend": {
+        "friends": "Friends",
+        "myFriends": "My Friends",
+        "other": "Other"
+    },
+
+    "chat-page":{
+        "title": "Chats",
+        "createChat": "Create a new chat"
+    },
+
+    "notif-page":{
+        "title": "Notifications"
+    },
+
+    "post-page":{
+        "title": "Post",
+        "contentInstruction" : "Write your post",
+        "submitError" : "There should be a content for the new post.",
+        "postCreationInstruction1" : "There is no post yet",
+        "postCreationInstruction2" : "Click ",
+        "postCreationInstruction3" : "here",
+        "postCreationInstruction4" : " to add a post",
+        "postImageAlt" : "Post image",
+        "postDeletionConfirmation" : "Are you sure you want to delete this post?",
+        "postDeletionYesBtn" : "Yes",
+        "postDeletionNoBtn" : "No"
+    },
+
+    "search-page":{
+        "title": "Search Filter",
+        "post": "Post",
+        "group": "Group",
+        "user": "User"
+    }
+}

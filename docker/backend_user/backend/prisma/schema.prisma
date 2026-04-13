@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id        String      @id @default(cuid(2))
+  firstName String?
+  lastName  String?
+
+  email     String   @unique
+  role      Role     @default(USER)
+  status    Boolean  @default(false)
+  urlProfil String?
+  urlCover  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String
+
+  senderFriendRequests FriendRequests[] @relation(name: "senderFriendRequest")
+  receiverFriendRequests FriendRequests[] @relation(name: "receiverFriendRequest")
+  
+  friends1 Friends[] @relation(name: "user1Friend")
+  friends2 Friends[] @relation(name: "user2Friend")
+
+}
+
+enum Role {
+  USER  @map("user")
+  ADMIN @map("admin")
+}
+
+model FriendRequests {
+  id          String      @id @default(ulid())
+  senderId    String
+  sender      Users       @relation(name: "senderFriendRequest", fields: [senderId], references: [id])
+  receiverId  String
+  receiver    Users       @relation(name: "receiverFriendRequest", fields: [receiverId], references: [id])
+  status      StatusRequest? @default(PENDING)
+  friend      Friends? @relation(name: "friendRequestAccepted")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum StatusRequest {
+  PENDING
+  ACCEPTED
+  DENIED
+}
+
+model Friends {
+  id        String      @id @default(ulid())
+  userId1   String
+  user1     Users @relation(name: "user1Friend", fields: [userId1], references: [id])
+  userId2   String
+  user2     Users @relation(name: "user2Friend", fields: [userId2], references: [id])
+  friendRequestId String @unique
+  friendRequest FriendRequests @relation(name: "friendRequestAccepted", fields: [friendRequestId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId1, userId2])
+}
