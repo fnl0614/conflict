@@ -21,11 +21,8 @@ const WbFriendItem = ({ data }: RelationalData) => {
 	const { request_id, user_info } = data;
 	const { id, urlProfil, firstName, lastName, role } = user_info;
     const navigate = useNavigate();
-<<<<<<< HEAD
 
 	console.log("Role in WbFriendItem:", role);
-=======
->>>>>>> main
 
 	return (
 		<Card sx={{ width: '200px', height: role === 'none' ? '260px' : '350px', bgcolor: 'white'}}>
@@ -49,11 +46,7 @@ const WbFriendItem = ({ data }: RelationalData) => {
 				{
 					role !== 'none' &&
 					<CardActions sx={{ width: '100%', height: '100%', justifyContent: 'center'}}>
-<<<<<<< HEAD
 						<WbFriendInteraction type={getType(role)} user_id={id} request_id={request_id} variant="extended"/>
-=======
-						<WbFriendInteraction type={getType(role)} user_id={id} request_id={request_id}/>
->>>>>>> main
 					</CardActions>
 				}
 			</Stack>

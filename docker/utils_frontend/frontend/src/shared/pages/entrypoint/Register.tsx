@@ -12,7 +12,6 @@ export default function Register(){
 	const { t } = useUtils();
 
     return(
-<<<<<<< HEAD
 		<>
 			<Box position="fixed" top={16} right={16} zIndex={1000}>
 				<LanguageSelect />
@@ -52,24 +51,5 @@ export default function Register(){
 				</Stack>
 			</Stack>
 		</>
-=======
-		<Box
-			display="flex"
-			justifyContent="center"
-			alignItems="center"
-			minHeight="100vh"
-			flexDirection={'column'}
-			gap={2}
-		>
-			<Logo/>
-			<RegisterForm/>
-			<GoogleAuth
-				continueString={t("authentication-page.googleOpt")}
-				action={t("authentication-page.registerAsk")}
-				link="/login"
-				linkString={strCapitalize(t("authentication-page.signin"))}
-			/>
-		</Box>
->>>>>>> main
     )
 }

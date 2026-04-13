@@ -9,7 +9,6 @@ interface CustomBtnProps {
 	link?: string | undefined;
 	bgColor: customColor;
 	onClick?: () => void;
-<<<<<<< HEAD
 	variant?: 'extended' | 'normal';
 	loading?: boolean;
     disabled?: boolean;
@@ -38,16 +37,6 @@ const CustomBtn = ({
 			textAlign: 'center',
 		};
 
-=======
-	popOver?: {
-		children: React.ReactNode;
-	};
-    loading?: boolean;
-    disabled?: boolean;
-}
-
-const CustomLargeBtn = ({ bgColor, title, link, onClick, loading = false, disabled = false }: CustomBtnProps) => {
->>>>>>> main
 	return (
 		<Button
 			variant='contained'
@@ -55,11 +44,7 @@ const CustomLargeBtn = ({ bgColor, title, link, onClick, loading = false, disabl
 			sx={btnStyle}
 			href={link}
 			onClick={onClick}
-<<<<<<< HEAD
 			disabled={disabled || title === 'Pending'}
-=======
-            disabled={disabled || title === 'Pending'}
->>>>>>> main
             loading={loading}
 		>{title}</Button>
   )

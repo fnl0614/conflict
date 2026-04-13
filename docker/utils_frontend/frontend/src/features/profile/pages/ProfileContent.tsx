@@ -1,11 +1,7 @@
 import { Grid, Paper, Stack, Typography, Box } from "@mui/material"
 import PostFeed from "../../post/components/PostFeed"
 import { useOutletContext, useParams } from "react-router";
-<<<<<<< HEAD
 import { PartialList, GroupPartialList } from "../components/PartialList";
-=======
-import PartialList from "../components/PartialList";
->>>>>>> main
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useProfile from "../hooks/useProfile";
 import { useTranslation } from "react-i18next";
@@ -24,11 +20,7 @@ export default function ProfileContent() {
 			screen === 'mb' ?
 			<Stack>
 				<PartialList type="friend" />
-<<<<<<< HEAD
 				<GroupPartialList userId={id} />
-=======
-				<PartialList type="group" />
->>>>>>> main
                 { relation === 'user' ? 
                     <Paper sx={{p: 2}} elevation={3}>
                         <Box sx={{

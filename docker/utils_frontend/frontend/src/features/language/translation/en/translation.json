@@ -18,14 +18,10 @@
         "modal": {
             "title": "Google Authentication",
             "content": "You must fill the fields above to use Google Authentication."
-<<<<<<< HEAD
         },
         "legalError": "You must agree to the terms of service and the privacy policy to register.",
         "condition": "I have read and agree to the ",
         "and": " and "
-=======
-        }
->>>>>>> main
     },
 
     "setting-page": {
@@ -76,17 +72,9 @@
         "title": "Profile",
         "friends": "Friends",
         "groups": "Groups",
-<<<<<<< HEAD
         "accept": "Accept",
         "decline": "Decline",
         "add": "Add friend",
-=======
-        "accept": "Accept invitation",
-        "decline": "Decline invitation",
-        "add": "Add to friends",
-        "remove": "Remove from friends",
-        "waiting": "Invitation pending",
->>>>>>> main
         "chat": "Chat",
         "setting": "Setting",
         "postInstruction": "Add this user as a friend to see his/her post"

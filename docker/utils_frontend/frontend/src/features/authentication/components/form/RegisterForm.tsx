@@ -2,12 +2,9 @@ import { Stack, Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import LoginIcon from '@mui/icons-material/Login';
 import PasswordForm from "./PasswordForm";
-<<<<<<< HEAD
 import LegalChecking from './LegalChecking';
 
 import useRegisterForm from '../../hooks/useRegisterForm';
-=======
->>>>>>> main
 
 const RegisterForm = () => {
 	const {

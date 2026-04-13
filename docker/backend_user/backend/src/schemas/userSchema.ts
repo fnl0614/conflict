@@ -38,7 +38,6 @@ const idSchema = {
     required: ["idUser"]
 }
 
-<<<<<<< HEAD
 const listUserSchema = {
     type: "object",
     // name: "userIds",
@@ -57,12 +56,6 @@ const userSchema = {
     bodySchemaForLogin,
     idSchema,
     listUserSchema
-=======
-const userSchema = {
-    bodySchemaForRegistration,
-    bodySchemaForLogin,
-    idSchema
->>>>>>> main
 }
 
   export default userSchema;

@@ -3,12 +3,9 @@ import ProfileHeader from "./ProfileHeader"
 import ProfileTab from "./ProfileTab"
 import TitleBar from "../../../shared/components/ui/TitleBar"
 import { useTranslation } from "react-i18next"
-<<<<<<< HEAD
 
 import { Outlet, useOutletContext } from "react-router"
 import { useAuth } from "../../authentication/context/AuthContext"
-=======
->>>>>>> main
 
 const MobileProfileLayout = () => {
     const [t] = useTranslation("global");

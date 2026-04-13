@@ -18,26 +18,6 @@ const queryClient = new QueryClient({
 	}
 });
 
-import { GoogleOAuthProvider } from '@react-oauth/google';
-// import { useRef, useEffect } from 'react';
-
-// const GoogleOAuthWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-// 	const initialized = useRef(false);
-	
-// 	useEffect(() => {
-// 		// This prevents the multiple initialization warning in Strict Mode
-// 		if (!initialized.current && window.google?.accounts?.id) {
-// 			initialized.current = true;
-// 		}
-// 	}, []);
-	
-// 	return (
-// 		<GoogleOAuthProvider clientId={clientId}>
-//       {children}
-//     </GoogleOAuthProvider>
-//   );
-// };
-
 export const AppProviders: React.FC<ChildrenNodeProps> = ({ children }) => {
 	const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -45,19 +25,13 @@ export const AppProviders: React.FC<ChildrenNodeProps> = ({ children }) => {
 		<GoogleOAuthProvider clientId={clientId}>
 			<LanguageProvider>
 				<CustomThemeProvider>
-<<<<<<< HEAD
 					<QueryClientProvider client={queryClient}>
-=======
->>>>>>> main
 						<AuthProvider>
 							<BrowserRouter>
 								{children}
 							</BrowserRouter>
 						</AuthProvider>
-<<<<<<< HEAD
 					</QueryClientProvider>
-=======
->>>>>>> main
 				</CustomThemeProvider>
 			</LanguageProvider>
 		</GoogleOAuthProvider>

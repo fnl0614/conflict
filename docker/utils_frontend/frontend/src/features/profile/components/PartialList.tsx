@@ -1,12 +1,8 @@
 import { Grid, Link, Paper, Stack, Typography } from "@mui/material";
-<<<<<<< HEAD
 import AvatarSquare from "../../../shared/components/ui/AvatarSquare";
 import { useGroupUserList } from "../../group/hooks/useGroupList";
 import useScreenMobile from "../../../shared/hooks/useScreen";
 import LoadingCircular from "../../../shared/components/LoadingCircular";
-=======
-import AvatarSquare from "../components/ui/AvatarSquare";
->>>>>>> main
 import usePartialList from "../hooks/usePartialList";
 import Loading from "../../../shared/components/Loading";
 
@@ -20,33 +16,15 @@ interface GroupPartialListStructProps {
 	}[]
 }
 
-<<<<<<< HEAD
 const GroupPartialListStruct = ( { items, link, type }: GroupPartialListStructProps) => {
 
 	const nb = items? items.length : 0;
 
-=======
-const PartialList = ( { type }: PartialListProps) => {
-	const {
-		nb,
-		items,
-		id,
-		loading
-	} = usePartialList(type, "partial");
-
-	if (loading) {
-		return (<Loading />);
-	}
->>>>>>> main
 	return (
 		<Paper sx={{ p: 2 }} elevation={3}>
 			<Stack direction="row" justifyContent="space-between">
 				<Typography variant="h6" textTransform={'capitalize'}>{type} : {nb}</Typography>
-<<<<<<< HEAD
 				<Link href={link} sx={{ textDecoration: 'none', color: 'accent_2.main' }}>See all</Link>
-=======
-				<Link href={`/users/${id}/${type}`} sx={{ textDecoration: 'none', color: 'accent_2.main' }}>See all</Link>
->>>>>>> main
 			</Stack>
 			<Grid
 				direction="row"
@@ -57,7 +35,6 @@ const PartialList = ( { type }: PartialListProps) => {
 				{ items.map((item, index) => (
 					<Grid key={index} size={{ mobile: 'auto', minitablet: 'auto', tablet: 4, laptop: 4, desktop: 4}} justifyContent='center'>
 						<AvatarSquare
-<<<<<<< HEAD
 							profileUrl={item.urlProfil}
 							fullName={item.name}
 							id={item.id}
@@ -130,11 +107,6 @@ const PartialList = ( { type }: PartialListProps) => {
 						<AvatarSquare
 							profileUrl={item.urlProfil}
 							fullName={item.firstName + " " + item.lastName}
-=======
-							imageUrl={item.urlProfil}
-							altText={item.firstName + " " + item.lastName}
-							name={item.firstName + " " + item.lastName}
->>>>>>> main
 							id={item.id}
 						/>
 					</Grid>
