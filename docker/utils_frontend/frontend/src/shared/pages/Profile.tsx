@@ -4,9 +4,7 @@ import { MobileProfileLayout, WebProfileLayout } from "../../features/profile/la
 import WebBodyLayout from "../layouts/web/WebBodyLayout";
 
 export default function Profile(){
-
 	const location = useLocation();
-
 	const screen = useOutletContext();
 
 	return (
@@ -19,7 +17,7 @@ export default function Profile(){
 				:
 				<WebBodyLayout>
 					{null}
-					<Box maxWidth={1200} margin={'auto'}><WebProfileLayout /></Box>
+					<WebProfileLayout />
 				</WebBodyLayout>
 			}
 		</>

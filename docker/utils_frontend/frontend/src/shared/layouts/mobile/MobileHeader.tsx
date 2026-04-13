@@ -15,7 +15,7 @@ export default function MobileHeader() {
 
 	if (location.pathname === '/home' || location.pathname === '/') {
 			return (
-			<AppBar position="fixed" sx={{ bgcolor: 'white' }}>
+			<AppBar sx={{ bgcolor: 'white', width: '100%' }}>
 				<MobileTopHeader/>
 				<MobileBottomHeader/>
 			</AppBar>
@@ -23,7 +23,7 @@ export default function MobileHeader() {
 	}
 
 		return (
-			<AppBar position="fixed" sx={{ bgcolor: 'white'}}>
+			<AppBar sx={{ bgcolor: 'white', width: '100%' }}>
 				<MobileBottomHeader/>
 			</AppBar>
 		)

@@ -1,13 +1,44 @@
 import { Button } from "@mui/material";
 import type { customColor } from "../../data/sharedType";
-import Popover from '@mui/material/Popover';
-import { useState } from "react";
+import { Stack, Typography } from "@mui/material"
+import type { ElementType } from "react";
+import { useNavigate } from "react-router";
 
 interface CustomBtnProps {
 	title: string;
 	link?: string | undefined;
 	bgColor: customColor;
 	onClick?: () => void;
+<<<<<<< HEAD
+	variant?: 'extended' | 'normal';
+	loading?: boolean;
+    disabled?: boolean;
+}
+
+const CustomBtn = ({ 
+	bgColor,
+	title,
+	link,
+	onClick,
+	variant = "normal",
+	loading = false,
+	disabled = false 
+}: CustomBtnProps) => {
+	let btnStyle;
+	if (variant === 'extended')
+		btnStyle = {color: 'white', fontWeight: 'bold', width: '100%'};
+	else
+		btnStyle = {
+			color: 'white',
+			fontWeight: 'bold',
+			px: 2,
+			py: 1,
+			whiteSpace: 'normal',
+			wordBreak: 'break-word',
+			textAlign: 'center',
+		};
+
+=======
 	popOver?: {
 		children: React.ReactNode;
 	};
@@ -16,74 +47,47 @@ interface CustomBtnProps {
 }
 
 const CustomLargeBtn = ({ bgColor, title, link, onClick, loading = false, disabled = false }: CustomBtnProps) => {
+>>>>>>> main
 	return (
 		<Button
 			variant='contained'
 			color={bgColor}
-			sx={{ color: 'white', width: '100%'}}
+			sx={btnStyle}
 			href={link}
 			onClick={onClick}
+<<<<<<< HEAD
+			disabled={disabled || title === 'Pending'}
+=======
             disabled={disabled || title === 'Pending'}
+>>>>>>> main
             loading={loading}
 		>{title}</Button>
+  )
+}
+
+interface MenuBtnProps {
+	content: string;
+	link: string;
+	Icon: ElementType;
+}
+
+const MenuBtn = ({ content, link, Icon }: MenuBtnProps) => {
+
+	const navigate = useNavigate();
+	
+	return (
+		<Stack 
+			width={'100%'}
+			onClick={() => navigate(link)}
+			spacing={2} 
+			direction='row'
+			sx={{ bgcolor: 'primary_1.main', p: 2, cursor:'pointer'}}
+			alignItems={'center'}
+		>
+			<Icon/>
+			<Typography color='primary_2.main'>{content}</Typography>
+		</Stack>
 	)
 }
 
-const CustomBtn = ({ bgColor, title, link, onClick }: CustomBtnProps) => {
-
-	const btnStyle = {color: 'white', fontWeight: 'bold', px: 2, py: 1};
-
-  return (
-		<Button
-			variant='contained'
-			color={bgColor}
-			sx={btnStyle}
-			href={link}
-			onClick={onClick}
-		>{title}</Button>
-  )
-}
-
-/*Note: Test of popover button*/
-
-const CustomPopBtn = ({ bgColor, title, link, popOver }: CustomBtnProps) => {
-
-	const btnStyle = {color: 'white', fontWeight: 'bold', px: 2, py: 1};
-
-	const { children } = popOver || { anchorEl: null, open: false };
-
-	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		setAnchorEl(event.currentTarget);
-	  };
-	
-	  const handleClose = () => {
-		setAnchorEl(null);
-	  };
-
-  return (
-	<>
-		<Button
-			variant='contained'
-			color={bgColor}
-			sx={btnStyle}
-			href={link}
-			onClick={handleClick}
-		>{title}</Button>
-		{ popOver && 
-		<Popover
-			open={Boolean(anchorEl)}
-			onClose={handleClose}
-			anchorEl={anchorEl}
-			anchorOrigin={{
-				vertical: 'center',
-				horizontal: 'center',
-			}}
-		>{children}</Popover>
-		}
-	</>
-  )
-}
-
-export { CustomBtn, CustomLargeBtn, CustomPopBtn };
+export { CustomBtn, MenuBtn };

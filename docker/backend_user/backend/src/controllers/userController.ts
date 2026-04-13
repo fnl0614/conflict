@@ -11,6 +11,37 @@ import { Multipart } from "@fastify/multipart";
 
 dotenv.config()
 
+async function listUsersFromId(request: FastifyRequest, reply: FastifyReply) {
+
+  try {
+    const {userIds} = request.body as { userIds:Array<string> };
+    const users = await prisma.users.findMany({
+      where: {
+        id : { in: userIds }
+      },
+      select: {
+        id: true,
+        email: true,
+        lastName: true,
+        firstName: true,
+        status: true,
+        urlProfil: true,
+        urlCover: true,
+      },
+    });
+    return reply
+      .status(200).send({
+        users
+      });
+  } catch (error) {
+    reply
+      .status(500)
+      .send({
+        message: "Internal server error"
+      });
+  }
+}
+
 async function listUsers(request: FastifyRequest, reply: FastifyReply) {
 
   const idUser = request.headers['x-user-id'];
@@ -671,6 +702,7 @@ const googleAccess = async (request: FastifyRequest, reply: FastifyReply) => {
 
 const userController = {
   listUsers,
+  listUsersFromId,
   findUsers,
   removeUser,
   userRegistration,

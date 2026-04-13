@@ -7,6 +7,9 @@ interface SaveButtonProps {
     onClick?: () => Promise<void> | void
 }
 
+/* NOTE : 
+    Changing some button proprety because error on changing language
+*/
 export default function SaveButton({disabledCondition = false, type = undefined, onClick = () => {}} : SaveButtonProps)
 {
     const [t] = useTranslation("global");
@@ -18,10 +21,11 @@ export default function SaveButton({disabledCondition = false, type = undefined,
             sx={{
                 bgcolor: 'accent_2.main',
                 color: '#fff',
-                px: 6,
+                px: 2,
                 py: 1.5,
                 borderRadius: 3,
-                width: '10%',
+                // width: '10%',
+                width: 'fit-content',
                 alignSelf: 'center',
                 '&:hover': { bgcolor: '#14cfa0' },
             }}

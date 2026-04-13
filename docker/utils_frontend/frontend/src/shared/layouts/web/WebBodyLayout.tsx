@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Stack } from "@mui/material";
 
 type WebBodyLayoutProps = {
 	children: React.ReactNode[];
@@ -7,36 +7,47 @@ type WebBodyLayoutProps = {
 export default function WebBodyLayout({ children }: WebBodyLayoutProps) {
 
 	const [ sidebar, outlet ] = children;
-	const sizeSideBar = sidebar ? 4 : 0;
-	const sizeOutlet = sidebar ? 8 : 12;
 
 	return (
-		<Grid
-			container
-			direction={'row'}
-			spacing={sidebar ? 5 : 0}
+		<Stack
+			spacing={sidebar ? 3 : 0}
 			sx={{ bgcolor: 'primary_1.main'}}
 			height={'100%'}
 			minHeight={'100vh'}
 			marginTop={3}
-			position={'relative'}
+			direction={'row'}
 			display={'flex'}
 		>
 			{ sidebar ?
-					<>
-						<Grid
-							size={sizeSideBar}
-							sx={{ bgcolor: 'white', height: '100%', minWidth: '300px' }}
-							position={'fixed'}
-						>{sidebar}</Grid>
-						<Grid
-							size={sizeOutlet}
-							sx={{ bgcolor: 'white'}}
-							marginLeft={`${(sizeSideBar / 12) * 100}%`}
-						>{outlet}</Grid>
-					</>
-				: <Grid size={sizeOutlet} >{outlet}</Grid>
+				<>
+					<Stack
+						sx={{
+							bgcolor: 'white',
+							height: '100%',
+							minWidth: '30%',
+							maxWidth: '40%',
+							flexGrow: 0,
+							overflowY: 'auto',
+						}}
+					>{sidebar}</Stack>
+					<Stack
+						sx={{
+							bgcolor: 'white',
+							flexGrow: 1,
+							overflowY: 'auto'
+						}}
+					>{outlet}</Stack>
+				</>
+				: <Stack 
+					sx={{
+						width: '100%',
+						maxWidth: 800,
+						marginX: 'auto',
+						flexGrow: 0,
+					}}
+				>{outlet}</Stack>
 			}
-		</Grid>
+		</Stack>
 	)
 }
+

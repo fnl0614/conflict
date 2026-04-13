@@ -16,7 +16,6 @@ const AuthProvider = ({children} : ChildrenNodeProps) => {
 	const [userData, setUserData] = useState<AuthData | null | undefined>(undefined);
 
 	const loadUser = async () => {
-		setUserData(undefined);
 		const response = await getLoggedUser();
 		setUserData(response);
 	};
@@ -33,7 +32,7 @@ const AuthProvider = ({children} : ChildrenNodeProps) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{userData, setUserData: updateUserData, initUserData: loadUser}}>{children}</AuthContext.Provider>
+		<AuthContext.Provider value={{userData, setUserData: updateUserData, initUserData : loadUser }}>{children}</AuthContext.Provider>
 	)
 }
 

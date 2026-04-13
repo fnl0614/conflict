@@ -8,7 +8,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import useSetting from '../hooks/useSetting';
 import TitleBar from '../../../shared/components/ui/TitleBar';
 import SettingButton from './SettingButton';
-import LogoutButton from './LogoutButton';
+import { CustomBtn } from '../../../shared/components/ui/CustomButton';
 
 export default function SettingMenu() {
 
@@ -20,7 +20,8 @@ export default function SettingMenu() {
 		handlePasswordChange,
 		handleLanguageChange,
 		handleImageChange,
-		handleOther
+		handleTermsOfService,
+		handlePrivacyPolicy
 		} = useSetting();
 
 	return (
@@ -40,9 +41,10 @@ export default function SettingMenu() {
 				/>
 				<SettingButton onClick={handlePasswordChange} Icon={LockIcon} content={t("setting-page.mainPassword")} />
 				<SettingButton onClick={handleLanguageChange} Icon={LanguageIcon} content={t("setting-page.mainLanguage")} />
-				<SettingButton onClick={handleOther} Icon={DescriptionIcon} content={t("setting-page.mainTOS")} />
+				<SettingButton onClick={handleTermsOfService} Icon={DescriptionIcon} content={t("legal.termsOfService.title")} />
+				<SettingButton onClick={handlePrivacyPolicy} Icon={DescriptionIcon} content={t("legal.privacyPolicy.title")} />
 			</Stack>
-			<LogoutButton onClick={handleLogout} content={t("setting-page.mainLogout")}/>
+			<CustomBtn title={t("setting-page.mainLogout")} bgColor={'accent_1'} onClick={handleLogout}/>
 		</Stack>
 	)
 }

@@ -55,8 +55,14 @@ const getUserProfile = async (id: string) => {
 	
 	try {
 		const fullUrl = `${import.meta.env.VITE_GET_USER_PROFILE_URL}/${id}`;
+<<<<<<< HEAD
+		const response = await axios.get(fullUrl, {
+			withCredentials: true
+		});
+=======
 		const response = await axios.get(fullUrl);
 		console.log("User profile : ", response.data);
+>>>>>>> main
 		return response.data;
 	} catch (err) {
 		console.log("Error getting user profile : ", err);

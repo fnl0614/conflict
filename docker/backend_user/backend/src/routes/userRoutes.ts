@@ -20,6 +20,9 @@ const userRoutes: FastifyPluginAsync = async (fastify: FastifyInstance) => {
   fastify.delete("/removeUser/:username", userController.removeUser);
   fastify.get("/logout", userController.userLogout);
   fastify.get("/listUsers", userController.listUsers);
+  fastify.post("/list/get",{schema : { 
+    body: userSchema.listUserSchema
+  }}, userController.listUsersFromId);
   fastify.get("/findUser/:UserInfo", userController.findUsers);
   fastify.post('/register', { schema: { body: userSchema.bodySchemaForRegistration } },
     userController.userRegistration);

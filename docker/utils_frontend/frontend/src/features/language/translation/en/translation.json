@@ -18,12 +18,19 @@
         "modal": {
             "title": "Google Authentication",
             "content": "You must fill the fields above to use Google Authentication."
+<<<<<<< HEAD
+        },
+        "legalError": "You must agree to the terms of service and the privacy policy to register.",
+        "condition": "I have read and agree to the ",
+        "and": " and "
+=======
         }
+>>>>>>> main
     },
 
     "setting-page": {
         "mainTitle" : "SETTINGS",
-        "mainImage" : "Profil and Cover image",
+        "mainImage" : "Profile and Cover image",
         "mainName" : "First and Last name",
         "mainEmail" : "Email",
         "mainPassword" : "Password",
@@ -49,15 +56,7 @@
         "confirmPassword" : "Confirm password",
         "passwordInstructions" : "To change your password, tap your current password on the current password field and tap the new password to the fields new and confirm password, then save.",
         "langTitle" : "Language",
-        "langDirective" : "Choose a language",
-
-        "terms": [
-            "By using this application, you agree to these Terms of Service.",
-            "If you do not agree, please do not use the app. This app is provided on an \"as is\" and \"as available\" basis. We make no guarantees regarding availability, accuracy, or reliability of the service. Features may change, be updated, or be discontinued at any time without notice.",
-            "You are responsible for any activity that occurs under your use of the app. You agree not to misuse the service, attempt unauthorized access, or interfere with normal operation.",
-            "All content and functionality are provided for general purposes only. We are not liable for any damages, losses, or issues arising from use of the app.",
-            "We may update these Terms at any time. Continued use of the app constitutes acceptance of the updated Terms."
-        ]
+        "langDirective" : "Choose a language"
     },
 
     "home-page": {
@@ -77,11 +76,17 @@
         "title": "Profile",
         "friends": "Friends",
         "groups": "Groups",
+<<<<<<< HEAD
+        "accept": "Accept",
+        "decline": "Decline",
+        "add": "Add friend",
+=======
         "accept": "Accept invitation",
         "decline": "Decline invitation",
         "add": "Add to friends",
         "remove": "Remove from friends",
         "waiting": "Invitation pending",
+>>>>>>> main
         "chat": "Chat",
         "setting": "Setting",
         "postInstruction": "Add this user as a friend to see his/her post"
@@ -97,12 +102,44 @@
     "group": {
         "groups": "groups",
         "createGroup": "Create a new group",
-        "myGroups": "My Groups",
-        "join": "Join",
-        "quit": "Quit",
-        "pending": "Pending",
+        "createGroupShort": "Create a group",
+        "joinedGroup": "Joined",
+        "ownedGroup": "Owned",
         "submit": "Submit",
-        "name": "Group Name"
+        "createGroupExplication" : "Fill the fields above and submit to create a new group",
+        "name": "Group Name",
+        "profile": "Group Profile",
+        "post": "Post",
+        "profile-page":{
+            "profile": "Profile",
+            "member": "Members"
+        },
+        "interaction" : {
+            "add": "Add",
+            "join": "Join",
+            "quit": "Quit",
+            "pending": "Pending",
+            "member": "Members",
+            "remove": "Remove",
+            "invite": "Invite friends",
+            "inviteBtn": "Invite",
+            "sendInvite": "Send invitation",
+            "inviteText": "Select friends you want to invite to join this group"
+        },
+        "setting" : {
+            "title": "Group Settings",
+            "name": "Group Name",
+            "image" : "Profile cover and image",
+            "imageTitle" : "Group Images",
+            "cover": "Cover",
+            "profile": "Profile",
+            "goProfile": "Go to group profile",
+            "delete": "Delete the group",
+            "description" : "Group Description",
+            "management": "Members management",
+            "nameInstructions" : "Fill the section above to change your group name.",
+            "descriptionInstructions" : "Fill the section above to change your group description."
+        }
     },
 
     "friend": {
@@ -139,5 +176,116 @@
         "post": "Post",
         "group": "Group",
         "user": "User"
+    },
+
+    "legal": {
+        "termsOfService": {
+            "title": "Terms of Service",
+            "lastUpdated": "Last updated: {{date}}",
+            "sections": [
+                {
+                    "title": "## Introduction",
+                    "content": "By accessing or using **{{appName}}**, you agree to these Terms of Service."
+                },
+                {
+                    "title": "## User Accounts",
+                    "content": "Users need to create an account to access the platform. You are responsible for maintaining the confidentiality of your account credentials."
+                },
+                {
+                    "title": "## User Content",
+                    "content": "Users may post content such as text or images. By posting content, you grant us permission to display and distribute that content on the platform."
+                },
+                {
+                    "title": "## Prohibited Activities",
+                    "content": "- Post illegal or harmful content\n- Harass or abuse other users\n- Upload viruses or malicious code\n- Attempt to hack or disrupt the service"
+                },
+                {
+                    "title": "## Content Removal",
+                    "content": "We reserve the right to remove content that violates these terms or community guidelines."
+                },
+                {
+                    "title": "## Account Termination",
+                    "content": "We may suspend or terminate accounts that violate these terms."
+                },
+                {
+                    "title": "## Disclaimer of Liability",
+                    "content": "The platform is provided \"as is\" without warranties. We are not responsible for user-generated content."
+                },
+                {
+                    "title": "## Changes to Terms",
+                    "content": "We may update these terms from time to time. By continuing to use the service, you agree to the revised terms."
+                },
+                {
+                    "title": "## Governing Law",
+                    "content": "These terms are governed by the laws of **{{country}}**."
+                },
+                {
+                    "title": "## Contact Information",
+                    "content": "For questions about these terms, contact us at **{{email}}**."
+                }
+            ]
+        },
+
+        "privacyPolicy": {
+            "title": "Privacy Policy",
+            "lastUpdated": "*Last updated: {{date}}*",
+            "sections": [
+                {
+                    "title": "## Introduction",
+                    "content": "Welcome to **{{appName}}**.\nThis Privacy Policy explains how we collect, use, and protect your information when you use our social media platform."
+                },
+                {
+                    "title": "## Information We Collect",
+                    "content": "- Personal information (first name, last name, email)\n- Profile information (profile picture)\n- Content you post (photos) and messages you sent\n- Usage data (pages visited, interactions)"
+                },
+                {
+                    "title": "## How We Use Your Information",
+                    "content": "- Provide and maintain the platform\n- Allow users to create profiles and share content\n- Improve the website and user experience\n- Communicate updates or important notifications\n- Prevent fraud and maintain security"
+                },
+                {
+                    "title": "## Sharing of Information",
+                    "content": "We do **not sell** your personal data. We may share information with:\n\n- Service providers that help operate the platform\n- Authorities if required by law"
+                },
+                {
+                    "title": "## Cookies and Tracking",
+                    "content": "We may use cookies or similar technologies to improve functionality, remember preferences, and analyze usage."
+                },
+                {
+                    "title": "## Data Security",
+                    "content": "We implement reasonable security measures to protect your information, but no online system is completely secure."
+                },
+                {
+                    "title": "## Your Rights",
+                    "content": "- Access your personal data\n- Update your account information"
+                },
+                {
+                    "title": "## Children’s Privacy",
+                    "content": "Our platform is not intended for users under the age of 13 (or the minimum legal age in your region)."
+                },
+                {
+                    "title": "## Changes to This Policy",
+                    "content": "We may update this Privacy Policy from time to time. Updates will be posted on this page."
+                },
+                {
+                    "title": "## Contact Us",
+                    "content": "If you have questions about this policy, contact us at **{{email}}**."
+                }
+            ]
+        }
+    },
+
+    "navigation":{
+        "home": "Go to Home page"
+    },
+
+    "error-page":{
+        "title": "ERROR",
+        "defaultErrorMessage": "An unexpected error has occurred. Please try again later."
+    },
+
+    "language":{
+        "en": "English",
+        "fr": "French",
+        "es": "Spanish"
     }
 }

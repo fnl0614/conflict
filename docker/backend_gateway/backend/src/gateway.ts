@@ -77,6 +77,13 @@ class Server {
             rewritePrefix: "",
             websocket: false,
         })
+
+        Server.app.register(proxy, {
+            upstream: "https://group:3005",
+            preHandler: auth,
+            prefix: "/api/v1/group/",
+            websocket: true,
+        })
     }
 
     public static async start() {

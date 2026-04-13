@@ -1,9 +1,14 @@
 import { AppBar, Stack } from "@mui/material"
 import ProfileHeader from "./ProfileHeader"
 import ProfileTab from "./ProfileTab"
-import { Outlet, useOutletContext } from "react-router"
 import TitleBar from "../../../shared/components/ui/TitleBar"
 import { useTranslation } from "react-i18next"
+<<<<<<< HEAD
+
+import { Outlet, useOutletContext } from "react-router"
+import { useAuth } from "../../authentication/context/AuthContext"
+=======
+>>>>>>> main
 
 const MobileProfileLayout = () => {
     const [t] = useTranslation("global");
@@ -20,10 +25,13 @@ const MobileProfileLayout = () => {
 
 const WebProfileLayout = () => {
 
+    const { userData } = useAuth();
+    const userId = userData?.id;
+
     return (
         <Stack spacing={2}>
             <ProfileHeader/>
-            <ProfileTab />
+            <ProfileTab userId={userId ? userId : ''}/>
             <Outlet context={ useOutletContext() }/>
         </Stack>
     )

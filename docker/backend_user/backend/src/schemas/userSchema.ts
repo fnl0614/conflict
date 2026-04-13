@@ -22,7 +22,7 @@ const bodySchemaForLogin = {
             type: "string",
             format: "email"
         },
-        password: {
+        password: { 
             type: "string",
             minLength: 8
         }
@@ -38,10 +38,31 @@ const idSchema = {
     required: ["idUser"]
 }
 
+<<<<<<< HEAD
+const listUserSchema = {
+    type: "object",
+    // name: "userIds",
+    properties: {
+        userIds : {
+            type: "array",
+            items: {
+                type: "string"
+            }
+        }
+    }
+}
+
+const userSchema = {
+    bodySchemaForRegistration,
+    bodySchemaForLogin,
+    idSchema,
+    listUserSchema
+=======
 const userSchema = {
     bodySchemaForRegistration,
     bodySchemaForLogin,
     idSchema
+>>>>>>> main
 }
 
   export default userSchema;

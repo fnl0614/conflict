@@ -34,8 +34,12 @@ const useSetting = () => {
 		navigate("/setting/image");
 	}
 
-	const handleOther = () => {
-		navigate("/setting/tos");
+	const handleTermsOfService = () => {
+		navigate("/setting/termsOfService");
+	}
+
+	const handlePrivacyPolicy = () => {
+		navigate("/setting/privacyPolicy");
 	}
 
 	return {
@@ -48,7 +52,8 @@ const useSetting = () => {
         handlePasswordChange,
         handleLanguageChange,
 		handleImageChange,
-		handleOther
+		handleTermsOfService,
+		handlePrivacyPolicy
 	}
 }
 

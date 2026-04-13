@@ -1,0 +1,7 @@
+const MAX_NAME_LENGTH = 20 as const
+const MAX_DESCRIPTION_LENGTH = 1000 as const
+
+export {
+    MAX_NAME_LENGTH,
+    MAX_DESCRIPTION_LENGTH
+}

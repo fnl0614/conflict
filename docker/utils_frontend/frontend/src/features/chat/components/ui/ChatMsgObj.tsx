@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
-import UserAvatar from "../../../profile/components/ui/UserAvatar";
+import CustomAvatar from "../../../../shared/components/ui/CustomAvatar";
 
 export type ChatMsgObjProps = {
 	id: string;
@@ -15,7 +15,7 @@ export default function ChatMsgObj({ id, urlProfil, msg, position, time }: ChatM
 			direction={'row'}
 			alignItems={'flex-start'}
 			sx={{ flexDirection: position === 'right' ? 'row-reverse' : 'row' }}>
-				<UserAvatar
+				<CustomAvatar
 					id={id}
 					urlProfil={urlProfil}
 					size={{ width: 30, height: 30 }}

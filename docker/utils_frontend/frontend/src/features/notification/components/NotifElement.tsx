@@ -1,7 +1,7 @@
 import { getFullName } from "../../../shared/utils/stringUtils";
 
 import { Card, CardActionArea, CardActions, CardContent, Stack, Typography } from "@mui/material";
-import UserAvatar from "../../profile/components/ui/UserAvatar";
+import CustomAvatar from "../../../shared/components/ui/CustomAvatar";
 import CustomIconBtn from "../../../shared/components/ui/CustomIconBtn";
 
 import CloseIcon from '@mui/icons-material/Close';
@@ -25,7 +25,7 @@ export default function NotifElement({id, urlProfil, firstName, lastName, conten
 				<CardActionArea sx={{ width: '90%' }} >
 					<CardContent>
 						<Stack direction={'row'} alignItems={'center'} gap={2} sx={{ width: '100%' }}>
-							<UserAvatar 
+							<CustomAvatar 
 								id={id}
 								urlProfil={urlProfil}
 								size={{ width: 60, height: 60 }}

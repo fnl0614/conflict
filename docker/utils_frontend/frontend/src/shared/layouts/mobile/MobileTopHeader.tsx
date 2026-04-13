@@ -4,7 +4,7 @@ import { Box, Toolbar } from "@mui/material";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SearchIcon from '@mui/icons-material/Search';
-import UserAvatar from "../../../features/profile/components/ui/UserAvatar";
+import CustomAvatar from "../../components/ui/CustomAvatar";
 import CustomIconBtn from "../../components/ui/CustomIconBtn";
 
 export default function MobileTopHeader(){
@@ -16,7 +16,7 @@ export default function MobileTopHeader(){
 	return(
 		<>
 			<Toolbar sx={{ justifyContent: "space-between" }}>
-				<UserAvatar id={userData?.id} urlProfil={userData?.urlProfil}/>
+				<CustomAvatar id={userData?.id} urlProfil={userData?.urlProfil}/>
 				<Box sx={{ flexGrow: 1 }} />
 				<Box sx={{ justifyContent: "space-between" }}>
 					<CustomIconBtn

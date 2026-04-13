@@ -1,46 +1,263 @@
 {
   "authentication-page": {
-    "signin": "SE CONNECTER",
+    "signin": "se connecter",
+    "signup": "s'inscrire",
     "password": "Mot de passe",
     "confirmPassword": "Confirmer le mot de passe",
-    "register": "S'INSCRIRE",
-    "username": "Nom d'utilisateur",
-    "userFirstName": "Prénom de l'utilisateur",
+    "register": "s'inscrire",
+    "lastName": "Nom",
+    "firstName": "Prénom",
     "email": "Email",
-    "login": "CONNECTION",
+    "login": "connexion",
     "googleOpt": "Ou continuer avec",
-    "loginAsk": "Pas encore de login ? ",
-    "registerAsk": "Avez-vous un compte ? "
+    "loginAsk": "Pas encore de compte ? ",
+    "registerAsk": "Vous avez un compte ? ",
+    "passwordError": "Les mots de passe ne correspondent pas",
+    "registerSuccess": "Inscription réussie ! Veuillez vous connecter.",
+    "loginSuccess": "Connexion réussie !",
+    "legalError": "Vous devez accepter les conditions d'utilisation et la politique de confidentialité pour vous inscrire.",
+    "condition": "J'ai lu et j'accepte les",
+    "and": " et les "
   },
 
   "setting-page": {
-    "mainTitle" : "PARAMETRES",
-    "mainProfilCover" : "Photo de couverture",
-    "mainProfilImage" : "Photo de profil",
-    "mainFirstName" : "Nom",
-    "mainLastName" : "Prenom",
-    "mainEmail" : "Email",
-    "mainPassword" : "Mot de passe",
-    "mainLanguage" : "Langage",
-    "mainTOS" : "Conditions de service",
-    "mainLogout" : "DECONNECTION",
-    "Profil Cover" : "Photo de couverture",
-    "Profil Image" : "Photo de profil",
-    "imageUpload" : "Uploader une image",
-    "imageLabel" : "Choisissez une image",
-    "imagePreview" : "Apercu de l'image",
-    "save" : "SAUVEGARDER",
-    "First name setting" : "Changement de nom",
-    "Current first name" : "Nom actuel",
-    "New first name" : "Nouveau nom",
-    "Last name setting" : "Changement de prenom",
-    "Current last name" : "Prenom actuel",
-    "New last name" : "Nouveau prenom",
-    "Email setting" : "Changement d'email",
-    "Current email" : "Email actuel",
-    "New email" : "Nouveau email",
-    "infoDirective" : "Pour modifier le parametre, saisissez la nouvelle valeur ci-dessous puis enregistrez",
-    "langTitle" : "Langage",
-    "langDirective" : "Choisissez un langage"
-  }
+    "mainTitle": "PARAMÈTRES",
+    "mainImage": "Image de profil et de couverture",
+    "mainName": "Nom et prénom",
+    "mainEmail": "Email",
+    "mainPassword": "Mot de passe",
+    "mainLanguage": "Langue",
+    "mainTOS": "Conditions d'utilisation",
+    "mainLogout": "SE DÉCONNECTER",
+    "cover": "Couverture",
+    "profile": "Profil",
+    "imageTitle": "Images",
+    "imageUpload": "Télécharger une image",
+    "imageLabel": "Choisir une image",
+    "imagePreview": "Aperçu de l'image",
+    "save": "ENREGISTRER",
+    "nameTitle": "Nom du profil",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "nameInstructions": "Pour changer votre nom, remplissez les champs ci-dessus pour créer un nouveau nom complet.",
+    "emailTitle": "Email",
+    "emailInstructions": "Pour changer votre email, remplissez le champ ci-dessus.",
+    "passwordTitle": "Mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "passwordInstructions": "Pour changer votre mot de passe, saisissez votre mot de passe actuel puis le nouveau dans les champs correspondants, puis enregistrez.",
+    "langTitle": "Langue",
+    "langDirective": "Choisissez une langue"
+  },
+
+  "home-page": {
+    "search": "Rechercher",
+    "home": "Accueil",
+    "groups": "Groupes",
+    "friends": "Amis",
+    "chats": "Discussions",
+    "notifications": "Notifications",
+    "posts": "Publications",
+    "settings": "Paramètres"
+  },
+
+  "profile-page": {
+    "see": "Voir tout",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "add": "Ajouter en ami",
+    "remove": "Supprimer",
+    "waiting": "En attente",
+    "chat": "Discussion",
+    "setting": "Paramètre"
+  },
+
+  "common-group-friend": {
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "invitations": "Invitations",
+    "other": "Autres"
+  },
+
+  "group": {
+    "groups": "Groupes",
+    "createGroup": "Créer un nouveau groupe",
+    "createGroupShort": "Créer un groupe",
+    "joinedGroup": "Rejoint",
+    "ownedGroup": "Possédé",
+    "submit": "Valider",
+    "createGroupExplication": "Remplissez les champs ci-dessus et validez pour créer un nouveau groupe",
+    "name": "Nom du groupe",
+    "profile": "Profil du groupe",
+    "goProfile": "Aller au profil du groupe",
+    "post": "Publication",
+    "profile-page": {
+        "profile": "Profil",
+        "member": "Membres"
+    },
+    "interaction": {
+        "add": "Ajouter",
+        "join": "Rejoindre",
+        "quit": "Quitter",
+        "pending": "En attente",
+        "member": "Membres",
+        "remove": "Supprimer",
+        "invite": "Inviter des amis",
+        "inviteBtn": "Inviter",
+        "sendInvite": "Envoyer une invitation",
+        "inviteText": "Sélectionnez les amis que vous souhaitez inviter à rejoindre ce groupe"
+    },
+    "setting": {
+        "title": "Paramètres du groupe",
+        "name": "Nom du groupe",
+        "image": "Image de couverture et profil",
+        "imageTitle": "Images du groupe",
+        "cover": "Couverture",
+        "profile": "Profil",
+        "delete": "Supprimer le groupe",
+        "description": "Description du groupe",
+        "management": "Gestion des membres",
+        "nameInstructions": "Remplissez la section ci-dessus pour modifier le nom du groupe.",
+        "descriptionInstructions": "Remplissez la section ci-dessus pour modifier la description du groupe."
+    }
+  },
+
+  "friend": {
+    "friends": "amis",
+    "myFriends": "Mes amis",
+    "other": "Autres"
+  },
+
+  "chat-page": {
+    "title": "Discussions",
+    "createChat": "Créer une nouvelle discussion"
+  },
+
+  "notif-page": {
+    "title": "Notifications"
+  },
+
+  "post-page": {
+    "title": "Publication",
+    "contentInstruction": "Écrivez votre publication"
+  },
+
+  "search-page": {
+    "title": "Filtre de recherche",
+    "post": "Publication",
+    "group": "Groupe",
+    "user": "Utilisateur"
+  },
+
+  "legal": {
+    "termsOfService": {
+      "title": "Conditions d'utilisation",
+      "lastUpdated": "Dernière mise à jour : {{date}}",
+      "sections": [
+        {
+          "title": "## Introduction",
+          "content": "En accédant ou en utilisant **{{appName}}**, vous acceptez ces Conditions d'utilisation."
+        },
+        {
+          "title": "## Comptes utilisateurs",
+          "content": "Les utilisateurs peuvent devoir créer un compte pour accéder à certaines fonctionnalités. Vous êtes responsable de la confidentialité de vos identifiants de compte."
+        },
+        {
+          "title": "## Contenu utilisateur",
+          "content": "Les utilisateurs peuvent publier du contenu tel que du texte, des images ou des commentaires. En publiant du contenu, vous nous accordez l'autorisation de l'afficher et de le distribuer sur la plateforme."
+        },
+        {
+          "title": "## Activités interdites",
+          "content": "- Publier du contenu illégal ou nuisible\n- Harceler ou abuser d'autres utilisateurs\n- Télécharger des virus ou des codes malveillants\n- Tenter de pirater ou perturber le service"
+        },
+        {
+          "title": "## Suppression de contenu",
+          "content": "Nous nous réservons le droit de supprimer le contenu qui enfreint ces conditions ou les directives communautaires."
+        },
+        {
+          "title": "## Résiliation de compte",
+          "content": "Nous pouvons suspendre ou résilier les comptes qui violent ces conditions."
+        },
+        {
+          "title": "## Clause de non-responsabilité",
+          "content": "La plateforme est fournie \"telle quelle\" sans garanties. Nous ne sommes pas responsables du contenu généré par les utilisateurs."
+        },
+        {
+          "title": "## Modifications des conditions",
+          "content": "Nous pouvons mettre à jour ces conditions à tout moment. L'utilisation continue du service signifie que vous acceptez les conditions mises à jour."
+        },
+        {
+          "title": "## Droit applicable",
+          "content": "Ces conditions sont régies par les lois de **{{country}}**."
+        },
+        {
+          "title": "## Informations de contact",
+          "content": "Pour toute question concernant ces conditions, contactez-nous à **{{email}}**."
+        }
+      ]
+    },
+
+    "privacyPolicy": {
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : {{date}}",
+      "sections": [
+        {
+          "title": "## Introduction",
+          "content": "Bienvenue sur **{{appName}}**. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre plateforme de médias sociaux."
+        },
+        {
+          "title": "## Informations que nous collectons",
+          "content": "- Informations personnelles (nom, adresse e-mail, nom d'utilisateur)\n- Informations de profil (bio, photo de profil)\n- Contenu que vous publiez (photos, commentaires, messages)\n- Données techniques (adresse IP, type de navigateur, informations sur l'appareil)\n- Données d'utilisation (pages visitées, interactions)"
+        },
+        {
+          "title": "## Comment nous utilisons vos informations",
+          "content": "- Fournir et maintenir la plateforme\n- Permettre aux utilisateurs de créer des profils et de partager du contenu\n- Améliorer le site Web et l'expérience utilisateur\n- Communiquer des mises à jour ou notifications importantes\n- Prévenir la fraude et maintenir la sécurité"
+        },
+        {
+          "title": "## Partage des informations",
+          "content": "Nous ne vendons **pas** vos données personnelles. Nous pouvons partager des informations avec :\n\n- Des prestataires de services qui aident à exploiter la plateforme\n- Les autorités si la loi l'exige\n- D'autres utilisateurs selon ce que vous choisissez de rendre public"
+        },
+        {
+          "title": "## Cookies et suivi",
+          "content": "Nous pouvons utiliser des cookies ou des technologies similaires pour améliorer la fonctionnalité, mémoriser vos préférences et analyser l'utilisation."
+        },
+        {
+          "title": "## Sécurité des données",
+          "content": "Nous mettons en œuvre des mesures de sécurité raisonnables pour protéger vos informations, mais aucun système en ligne n'est complètement sécurisé."
+        },
+        {
+          "title": "## Vos droits",
+          "content": "- Accéder à vos données personnelles\n- Mettre à jour ou supprimer les informations de votre compte\n- Demander la suppression de votre compte"
+        },
+        {
+          "title": "## Confidentialité des enfants",
+          "content": "Notre plateforme n'est pas destinée aux utilisateurs de moins de 13 ans (ou l'âge minimum légal dans votre région)."
+        },
+        {
+          "title": "## Modifications de cette politique",
+          "content": "Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. Les mises à jour seront publiées sur cette page."
+        },
+        {
+          "title": "## Nous contacter",
+          "content": "Si vous avez des questions concernant cette politique, contactez-nous à **{{email}}**."
+        }
+      ]
+    }
+  },
+
+  "navigation":{
+    "home": "Retourner à la page d'accueil"
+},
+
+  "error-page":{
+    "title": "ERREUR",
+    "defaultErrorMessage": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard."
+  },
+
+  "language":{
+    "en": "Anglais",
+    "fr": "Français",
+    "es": "Espagnol"
+}
 }

@@ -23,7 +23,8 @@ export default function Setting() {
 		{ text: t("setting-page.mainEmail"), link: '/setting/email', Icon: EmailIcon },
 		{ text: t("setting-page.mainPassword"), link: '/setting/password', Icon: LockIcon },
 		{ text: t("setting-page.mainLanguage"), link: '/setting/language', Icon: LanguageIcon },
-		{ text: t("setting-page.mainTOS"), link: '/setting/tos', Icon: DescriptionIcon },
+		{ text: t("legal.termsOfService.title"), link: '/setting/termsOfService', Icon: DescriptionIcon },
+		{ text: t("legal.privacyPolicy.title"), link: '/setting/privacyPolicy', Icon: DescriptionIcon },
 	]
 
 	return (
@@ -38,6 +39,7 @@ export default function Setting() {
 						btnColor: "accent_1",
 						onClick: handleLogout
 					},
+					lowerSpace: true,
 					tabOrientation: "vertical"
 				}}
 			/>

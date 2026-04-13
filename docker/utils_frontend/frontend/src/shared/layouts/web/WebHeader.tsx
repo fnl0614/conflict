@@ -33,15 +33,15 @@ export default function WebHeader() {
 
 	const notifArray : NotificationItem[] = [
 		{ title: t("home-page.home"), count: 0, link: "/home", Icon: HomeIcon },
-		{ title: t("home-page.groups"), count: 2, link: "/groups", Icon: GroupsIcon },
+		{ title: t("home-page.groups"), count: 0, link: "/groups", Icon: GroupsIcon },
 		{ title: t("home-page.friends"), count: 0, link: "/friends", Icon: PeopleAltIcon },
-		{ title: t("home-page.chats"), count: 100, link: "/chats", Icon: TextsmsIcon },
-		{ title: t("home-page.notifications"), count: 5, link: "/notifications", Icon: NotificationsIcon },
+		{ title: t("home-page.chats"), count: 0, link: "/chats", Icon: TextsmsIcon },
+		{ title: t("home-page.notifications"), count: 0, link: "/notifications", Icon: NotificationsIcon },
 	];
 
   return (
 	<Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }} position={'relative'}>
-		<AppBar position="fixed" sx={{ bgcolor: 'white' }}>
+		<AppBar sx={{ bgcolor: 'white' }}>
 			<Toolbar sx={{ justifyContent: "space-between" }}>
 				<Grid container alignItems={'center'} sx={{ width: '100%' }}>
 					<Grid
